@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/ex1.dir/main.cpp.o CMakeFiles/ex1.dir/stufun.cpp.o  -o ex1 

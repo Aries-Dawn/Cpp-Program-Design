@@ -1,0 +1,3 @@
+/mnt/d/cpp/lab4/ex1/CMakeFiles/rebuild_cache.dir
+/mnt/d/cpp/lab4/ex1/CMakeFiles/edit_cache.dir
+/mnt/d/cpp/lab4/ex1/CMakeFiles/ex1.dir
