@@ -1,39 +1,0 @@
-Please input information of 5 students : 
-Student 0's name:Zhang Xiaodong
-Student 0's scores:67.000000
-87.000000
-55.000000
-Student 1's name:Wang Xin
-Student 1's scores:89.000000
-90.000000
-83.000000
-Student 2's name:Wu xu
-Student 2's scores:90.000000
-93.000000
-91.000000
-Student 3's name:Hu zhulong
-Student 3's scores:78.000000
-65.000000
-62.000000
-Student 4's name:Bai yuting
-Student 4's scores:87.000000
-76.000000
-66.000000
-The information of 5 students you input are:
-Student 0 name: Zhang Xiaodong, scores: 67.00 87.00 55.00
-Student 1 name: Wang Xin, scores: 89.00 90.00 83.00
-Student 2 name: Wu xu, scores: 90.00 93.00 91.00
-Student 3 name: Hu zhulong, scores: 78.00 65.00 62.00
-Student 4 name: Bai yuting, scores: 87.00 76.00 66.00
-The descending order of the students:
-Student 0 name : Wu xu, scores: 90.00 93.00 91.00 average: 91.3333
-Student 1 name : Wang Xin, scores: 89.00 90.00 83.00 average: 87.3333
-Student 2 name : Bai yuting, scores: 87.00 76.00 66.00 average: 76.3333
-Student 3 name : Zhang Xiaodong, scores: 67.00 87.00 55.00 average: 69.6667
-Student 4 name : Hu zhulong, scores: 78.00 65.00 62.00 average: 68.3333
-Please input the name you want to find :Wu xu,Bai yuting
-Wang Xin,Bai yuting
-Bai yuting,Bai yuting
-Zhang Xiaodong,Bai yuting
-Hu zhulong,Bai yuting
-Bai yuting is not in students list.

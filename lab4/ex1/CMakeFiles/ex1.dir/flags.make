@@ -6,5 +6,5 @@ CXX_FLAGS =
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/mnt/d/cpp/lab4/ex1/include 
+CXX_INCLUDES = -I/mnt/e/Study/4.大四上/Cpp-Program-Design/lab4/ex1/include 
 
