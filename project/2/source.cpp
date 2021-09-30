@@ -68,13 +68,14 @@ vector<vector<double>> calculate(
                                     vector<vector<double>> &b)
 {
     vector<vector<double>> result;
-    for (int i = 0; i < a.size(); i++)
+    int size = a.size();
+    for (int i = 0; i < size; i++)
     {
         vector<double> temp;
-        for (int j = 0; j < b.size(); j++)
+        for (int j = 0; j < size; j++)
         {
             double res = 0;
-            for (int k = 0; k < a.size(); k++)
+            for (int k = 0; k < size; k++)
             {
                 res += a[i][k] * b[k][j];
             }
@@ -86,17 +87,33 @@ vector<vector<double>> calculate(
 }
 
 
+vector<vector<double>> calculateReverse(
+                                    vector<vector<double>> &a, 
+                                    vector<vector<double>> &b)
+{
+    vector<vector<double>> result;
+    int size = a.size();
+    for (int i = 0; i < size; i++)
+    {
+        vector<double> temp;
+        for (int k = 0; k < size; k++)
+        {
+            double res = 0;
+            double s = a[i][k];
+            for (int j = 0; j < size; j++)
+            {
+                res += s * b[k][j];
+            }
+            temp.push_back(res);
+        }
+        result.push_back(temp);
+    }
+    return result;
+}
 
-int main(int argc, char *argv[]){
-    clock_t start,end;
-    start=clock();
-    string input1 = argv[1];
-    string input2 = argv[2];
-    string out = argv[3];
-    vector<vector<double>> matrix1 = read_in(input1);
-    vector<vector<double>> matrix2 = read_in(input2);
-    vector<vector<double>> result = calculate(matrix1,matrix2);
 
+
+void outputAll(vector<vector<double>> &result, string out){
     ofstream file(out);
     file.setf(ios::fixed);
     file.precision(5);//精度为输出小数点后5位
@@ -107,16 +124,49 @@ int main(int argc, char *argv[]){
         for (int j = 0; j < result[i].size(); j++)
         {
             file << result[i][j] << " ";
-            // cout << result[i][j] << " ";
         }
-        // cout << endl;
         file << endl;
     }
     file.close();
-    
-    end=clock();
-    cout<<"F1运行时间"<<(double)(end-start)/CLOCKS_PER_SEC<<endl;
 }
 
 
+int main(int argc, char *argv[]){
+    clock_t start,end;
+    start=clock();
+    string input1 = argv[1];
+    string input2 = argv[2];
+    string out = argv[3];
+    
+    start=clock();
+    vector<vector<double>> matrix1 = read_in(input1);
+    end=clock();
+    cout<<"Read in First file used time :"<<(double)(end-start)/CLOCKS_PER_SEC<<"s"<<endl;
+    
+    start=clock();
+    vector<vector<double>> matrix2 = read_in(input2);
+    end=clock();
+    cout<<"Read in second file used time :"<<(double)(end-start)/CLOCKS_PER_SEC<<"s"<<endl;
+    
+    start=clock();
+    vector<vector<double>> result = calculate(matrix1,matrix2);
+    end=clock();
+    cout<<"Calculate two matrix multiple used time\t\t\t\t\t:"<<(double)(end-start)/CLOCKS_PER_SEC<<"s"<<endl;
+    
+    start=clock();
+    vector<vector<double>> result2 = calculateReverse(matrix1,matrix2);
+    end=clock();
+    cout<<"Calculate two matrix multiple with Reverse cycle order used time \t:"<<(double)(end-start)/CLOCKS_PER_SEC<<"s"<<endl;
+    
+    start=clock();
+    outputAll(result, out);
+    end=clock();
+    cout<<"Output the result to file used time :"<<(double)(end-start)/CLOCKS_PER_SEC<<"s"<<endl;
 
+    string out2 = {"outputWithReverse.txt"};
+    start=clock();
+    outputAll(result, out2);
+    end=clock();
+    cout<<"Output the result to out2 file used time :"<<(double)(end-start)/CLOCKS_PER_SEC<<"s"<<endl;
+
+}
