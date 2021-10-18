@@ -17,6 +17,5 @@ int main(){
         cout<<&result[0]<<endl;
         cout<<result<<endl;
     }
-        
-
+    return 0;
 }
