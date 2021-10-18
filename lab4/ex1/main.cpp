@@ -6,6 +6,9 @@ using namespace std;
 
 int main(){
     int n = 5;
+    cin >> n;
+    string temp;
+    getline(cin,temp);
     stuinfo *stu = new stuinfo[n];
     inputstu(stu,n);
     showstu(stu,n);

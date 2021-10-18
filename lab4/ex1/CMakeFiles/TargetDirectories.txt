@@ -1,3 +1,3 @@
-/mnt/e/Study/4.大四上/Cpp-Program-Design/lab4/ex1/CMakeFiles/rebuild_cache.dir
-/mnt/e/Study/4.大四上/Cpp-Program-Design/lab4/ex1/CMakeFiles/edit_cache.dir
-/mnt/e/Study/4.大四上/Cpp-Program-Design/lab4/ex1/CMakeFiles/ex1.dir
+/mnt/c/Users/Admin/Desktop/FS/Cpp-Program-Design/lab4/ex1/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/Admin/Desktop/FS/Cpp-Program-Design/lab4/ex1/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Admin/Desktop/FS/Cpp-Program-Design/lab4/ex1/CMakeFiles/ex1.dir

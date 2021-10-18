@@ -19,7 +19,7 @@ void inputstu(stuinfo stu[] , int n){
         strcpy(stu[i].name,(char *)str.data());
         // stu[i].name = (char *)str.data();
         // scanf("%s",stu[i].name);
-        printf("%s\n",stu[i].name);
+        // printf("%s\n",stu[i].name);
         printf("Student %d's scores:",i);
         for (int j = 0; j < 3; j++){
             cin >> stu[i].score[j];
@@ -34,7 +34,7 @@ void inputstu(stuinfo stu[] , int n){
     }
 }
 void showstu(stuinfo stu[] , int n){
-    printf("The information of %d students you input are:\n");
+    printf("The information of %d students you input are:\n",n);
     for (int i = 0; i < n; i++)
     {
         printf("Student %d name: %s, scores: %.2f %.2f %.2f\r\n",
@@ -61,8 +61,8 @@ bool findstu(stuinfo stu[] , int n, char ch[]){
     {
         char *n = stu[i].name;
         char *f = ch;
-        printf("%s,%s\n",n,f);
-        printf("%s,%s\n",stu[i].name,ch);
+        // printf("%s,%s\n",n,f);
+        // printf("%s,%s\n",stu[i].name,ch);
         if (strncmp(n,f,20)==0)
         {
             return true;
