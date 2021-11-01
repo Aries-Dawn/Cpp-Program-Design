@@ -1,3 +1,10 @@
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+     inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+
 # CS205 C/ C++ Programming - Project2
 
 > 樊顺
@@ -7,11 +14,12 @@
 <!-- vscode-markdown-toc -->
 * 1. [Part 1 Requirements](#Part1Requirements)
 * 2. [Part 2 The Implement of the Requirements](#Part2TheImplementoftheRequirements)
-	* 2.1. [**redirect the output to the file**](#redirecttheoutputtothefile)
-	* 2.2. [**Calculate the matrix multiple as double and float separately**](#Calculatethematrixmultipleasdoubleandfloatseparately)
-	* 2.3. [**Improving the speed of calculating**](#Improvingthespeedofcalculating)
-		* 2.3.1. [Brute force solution](#Bruteforcesolution)
-		* 2.3.2. [Reverse cycle order](#Reversecycleorder)
+	* 2.1. [**arguments process**](#argumentsprocess)
+	* 2.2. [**redirect the output to the file**](#redirecttheoutputtothefile)
+	* 2.3. [**Calculate the matrix multiple as double and float separately**](#Calculatethematrixmultipleasdoubleandfloatseparately)
+	* 2.4. [**Improving the speed of calculating**](#Improvingthespeedofcalculating)
+		* 2.4.1. [Brute force solution](#Bruteforcesolution)
+		* 2.4.2. [Reverse cycle order](#Reversecycleorder)
 
 <!-- vscode-markdown-toc-config
 	numbering=true
@@ -27,7 +35,43 @@
 
 ##  2. <a name='Part2TheImplementoftheRequirements'></a>Part 2 The Implement of the Requirements
 
-###  2.1. <a name='redirecttheoutputtothefile'></a>**redirect the output to the file**
+###  2.1. <a name='argumentsprocess'></a>**arguments process**
+
+For the input data, since I don't know the matrix size of the input file, I used the function: `int getNumber(string name);` to get the number in the input parameter to determine the size of the matrix in the input file.
+The code of this function show as follow:
+
+```c++
+int getNumber(string name)
+{
+    int len_s = name.size();
+    int i=0, j=0;
+    while (i < len_s)
+    {
+        if (name[i] >= '0'&& name[i] <= '9')
+        {
+            j = i;
+            int len = 0;
+            while (name[i] >= '0'&& name[i] <= '9')
+            {
+                i++;
+                len++;
+            }
+            string s0 = name.substr(j, len);//获取子串
+            int num=0;//数字字符串转换为整型数字
+            stringstream s1(s0);
+            s1 >> num;
+            return num;
+        }
+        else
+        {
+        i++;
+        }
+    }
+    return 0;
+}
+```
+
+###  2.2. <a name='redirecttheoutputtothefile'></a>**redirect the output to the file**
 
 In this part, I use the `<fstream>` to implement the redirect the output to the file. And when finish the output, close the stream. The code of output show as follow:
 
@@ -47,7 +91,7 @@ file.close();
 .....
 ```
 
-###  2.2. <a name='Calculatethematrixmultipleasdoubleandfloatseparately'></a>**Calculate the matrix multiple as double and float separately**
+###  2.3. <a name='Calculatethematrixmultipleasdoubleandfloatseparately'></a>**Calculate the matrix multiple as double and float separately**
 
 In this task, I use the double type to store all input numbers in two vectors. After the calculate, the result also store as double in vector.
 
@@ -55,9 +99,9 @@ In the basic implement, I use the Two-dimensional array ***`vector<vector<double
 
 Due to storage structure, the calculate was always using the double to calculate. And when the result output to the file, I make sure that the precision of all output data is **`5`** decimal places.
 
-###  2.3. <a name='Improvingthespeedofcalculating'></a>**Improving the speed of calculating**
+###  2.4. <a name='Improvingthespeedofcalculating'></a>**Improving the speed of calculating**
 
-####  2.3.1. <a name='Bruteforcesolution'></a>Brute force solution
+####  2.4.1. <a name='Bruteforcesolution'></a>Brute force solution
 
 + In this implement, I use three `for loop` to calculate two matrix multiple. The code is :
 
@@ -95,7 +139,7 @@ Calculate two matrix multiple used time :147.305s
 Output the result to file used time :2.674s
 ```
 
-####  2.3.2. <a name='Reversecycleorder'></a>Reverse cycle order
+####  2.4.2. <a name='Reversecycleorder'></a>Reverse cycle order
 
 + In this Implementation, I change the cycle order, make the first loop the `k`, the loop `j`(which means this method value taken from the a array is first calculated with the data in the column of the b array.).
 
