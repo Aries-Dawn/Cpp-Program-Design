@@ -69,8 +69,8 @@ int main() {
     MyMatrix res = multiply( mat1, mat2 );
     time_t t2 = time(NULL);
 
-    double elasped = difftime(t2, t1);
-    printf("Calculation used %lf second(s).\n", elasped);
+    double usedTime = difftime(t2, t1);
+    printf("Calculation used %lf second(s).\n", usedTime);
 
     writeMatToFile( res, "2048_3.txt" );
 
