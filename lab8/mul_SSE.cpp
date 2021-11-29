@@ -59,8 +59,9 @@ MyMatrix multiply( MyMatrix& a, MyMatrix& b ) {
     memset( result.mat, 0, sizeof(float)*result.length() );
     if( a.col != b.row )
         return result;
+    int len = a.col / 4;
     for( int j = 0; j < b.col; j ++ )
-        for( int k = 0; k < a.col; ++ k ) {
+        for( int k = 0; k < len; ++ k ) {
             __m128 m2 = _mm_set_ps(b(k*4+3,j), b(k*4+2,j), b(k*4+1,j), b(k*4,j));
             for( int i = 0; i < a.row; i ++ ) {
                 __m128 m1 = _mm_load_ps(&a(i,k*4));
