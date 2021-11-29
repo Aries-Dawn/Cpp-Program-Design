@@ -32,6 +32,7 @@ MyMatrix readMatFromFile( const char* filename ) {
     FILE* file = fopen( filename, "r" );
     int row, col;
     fscanf(file, "%d%d", &row, &col );
+    printf("%d  %d",row, col);
     MyMatrix result = allocMatrix(row, col);
     for( int i = 0; i < row; ++ i )
         for( int j = 0; j < col; ++ j )
@@ -72,7 +73,7 @@ int main() {
     double usedTime = difftime(t2, t1);
     printf("Calculation used %lf second(s).\n", usedTime);
 
-    writeMatToFile( res, "2048_3.txt" );
+    writeMatToFile( res, "2048_a.txt" );
 
     freeMatrix(mat1);
     freeMatrix(mat2);
